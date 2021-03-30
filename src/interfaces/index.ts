@@ -7,4 +7,5 @@ export type coffee = {
   stock: number;
   amountSelected: number;
   amountInBasket: number;
+  origin: string;
 };

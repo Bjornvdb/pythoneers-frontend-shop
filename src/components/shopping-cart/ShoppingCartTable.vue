@@ -32,7 +32,9 @@
       total price of €{{ totalPrice }}
     </template>
   </DataTable>
-  <h3 v-else class="p-m-0 p-text-center p-text-bolder">No products</h3>
+  <h3 v-else class="p-m-0 p-text-center p-text-bolder">
+    {{ t("no_products") }}
+  </h3>
   <Dialog
     v-model:visible="deleteProductDialog"
     :style="{ width: '450px' }"
@@ -71,11 +73,13 @@ import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import { useStore } from "vuex";
 import { coffee } from "@/interfaces";
+import { useI18n } from "vue-i18n";
 
 export default defineComponent({
   components: { DataTable, Column },
   setup() {
     const store = useStore();
+    const { t } = useI18n({ useScope: "global" });
 
     const deleteProductDialog = ref(false);
     const coffeeTemp = ref<coffee | null>(null);
@@ -98,6 +102,7 @@ export default defineComponent({
       confirmDeleteProduct,
       coffeeTemp,
       deleteProduct,
+      t,
     };
   },
 });

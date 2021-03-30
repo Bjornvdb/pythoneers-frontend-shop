@@ -1,7 +1,7 @@
 <template>
   <div class="container p-mt-3">
     <div class="p-d-flex p-flex-wrap p-jc-center">
-      <div class="p-d-flex p-flex-wrap p-jc-center" v-if="loading">
+      <div class="p-d-flex p-flex-wrap p-jc-center p-mb-3" v-if="loading">
         <div v-for="i in 6" :key="i" class="custom-skeleton p-mr-2">
           <Skeleton width="25rem" height="250px"></Skeleton>
           <div v-for="i in 2" :key="i" class="p-d-flex p-mb-3 p-mt-3">
@@ -23,14 +23,19 @@
         <div class="p-mr-2 p-mb-2" v-for="coffee of coffees" :key="coffee.id">
           <Card class="back-dark" style="width: 25em">
             <template #header>
-              <img alt="coffee image" :src="coffee.img" />
+              <img
+                alt="coffee image"
+                style="max-height: 450px"
+                :src="coffee.img"
+              />
             </template>
             <template #title>{{ coffee.name }}</template>
             <template subtitle>{{ coffee.name }}</template>
             <template #content>
               <p>{{ coffee.description }}</p>
-              <p class="p-text-bold">Price: €{{ coffee.price }}</p>
-              <p>In stock: {{ coffee.stock }}</p>
+              <p class="p-text-bold">{{ t("price") }}: €{{ coffee.price }}</p>
+              <p class="p-text-bold">{{ t("in_stock") }}: {{ coffee.stock }}</p>
+              <p class="p-text-bold">{{ t("origin") }}: {{ coffee.origin }}</p>
             </template>
             <template #footer>
               <div class="p-d-flex p-jc-center p-flex-column">
@@ -50,7 +55,7 @@
                   class="p-button-sm p-mt-3"
                   @click="addToCard(coffee)"
                   icon="pi pi-check"
-                  label="Add to shopping card"
+                  :label="t('add_to_cart')"
                 />
               </div>
             </template>
@@ -69,12 +74,14 @@ import Skeleton from "primevue/skeleton";
 import { useToast } from "primevue/usetoast";
 import { useStore } from "vuex";
 import { coffee } from "@/interfaces";
+import { useI18n } from "vue-i18n";
 
 export default defineComponent({
   components: { Card, InputNumber, Skeleton },
   setup() {
     const toast = useToast();
     const store = useStore();
+    const { t } = useI18n({ useScope: "global" });
 
     const amount = ref(0);
     const loading = ref(true);
@@ -101,6 +108,7 @@ export default defineComponent({
       coffees: computed(() => store.state.coffees),
       amount,
       loading,
+      t,
     };
   },
 });
