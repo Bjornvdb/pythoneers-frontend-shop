@@ -8,6 +8,7 @@
       <h3 style="color: rgba(255, 255, 255, 0.87); font-family: 'Satisfy', cursive; font-size: 30px; margin: 0px">CoffeeTaste</h3>
     </template>
     <template #right>
+      <div id="google_translate_element" class="p-mr-4"></div>
       <SelectButton class="p-mr-4" v-model="lang" :options="languages" />
       <Button
         :label="t('login')"
