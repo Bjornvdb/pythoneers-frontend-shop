@@ -6,6 +6,15 @@ import axios from "axios";
 export default createStore({
   state: {
     coffees: [] as coffee[],
+    user: {
+      isAuthenticated: false,
+      name: "",
+      email: "",
+      idToken: "",
+    },
+    endpoints: {
+      login: "http://localhost:3000/login",
+    },
   },
   getters: {
     numberOfProductsInCart(state) {
@@ -42,6 +51,18 @@ export default createStore({
         p.amountSelected = 1;
         return p;
       });
+    },
+    logout(state) {
+      state.user.isAuthenticated = false;
+      state.user.name = "";
+      state.user.email = "";
+      state.user.idToken = "";
+    },
+    login(state, payload) {
+      state.user.isAuthenticated = true;
+      state.user.name = payload.name;
+      state.user.email = payload.email;
+      state.user.idToken = payload.id_token;
     },
   },
   actions: {

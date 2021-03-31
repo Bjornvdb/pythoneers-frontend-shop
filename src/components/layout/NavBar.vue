@@ -9,7 +9,13 @@
     </template>
     <template #right>
       <SelectButton class="p-mr-4" v-model="lang" :options="languages" />
-      <Button :label="t('login')" icon="pi pi-user" class="p-button-outlined" />
+      <Button
+        :label="t('login')"
+        @click="onLoginClicked"
+        v-if="!user.isAuthenticated"
+        icon="pi pi-user"
+        class="p-button-outlined"
+      />
       <Button
         icon="pi pi-shopping-cart"
         @click="open = true"
@@ -32,7 +38,7 @@
   </Dialog>
 </template>
 
-<script>
+<script lang="ts">
 import { computed, defineComponent, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useStore } from "vuex";
@@ -55,16 +61,22 @@ export default defineComponent({
 
     const open = ref(false);
 
+    const onLoginClicked = () => {
+      window.location = store.state.endpoints.login;
+    };
+
     const languages = ref(["en", "nl"]);
 
     return {
       numberOfProducts: computed(() => store.getters.numberOfProductsInCart),
       storef: computed(() => store.state.coffees),
       productsInCart: computed(() => store.getters.getProductsInBasket),
+      user: computed(() => store.state.user),
       lang,
       languages,
       t,
       open,
+      onLoginClicked,
     };
   },
 });

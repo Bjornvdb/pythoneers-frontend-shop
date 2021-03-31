@@ -4,6 +4,8 @@ import i18n from "@/i18n";
 import App from "./App.vue";
 import PrimeVue from "primevue/config";
 import ToastService from "primevue/toastservice";
+import router from "@/router";
+
 const app = createApp(App);
 
 // CSS themes
@@ -19,6 +21,7 @@ import Avatar from "primevue/avatar";
 import Dialog from "primevue/dialog";
 
 app.use(PrimeVue);
+app.use(router);
 app.use(store);
 app.use(i18n);
 app.use(ToastService);
