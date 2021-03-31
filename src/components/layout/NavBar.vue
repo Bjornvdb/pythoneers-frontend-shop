@@ -70,9 +70,11 @@ export default defineComponent({
 
     const open = ref(false);
 
+    const logout = ref(t("logout"));
+
     const items = ref([
       {
-        label: "Logout",
+        label: logout.value,
         icon: "pi pi-user-minus",
         command: () => {
           store.commit("logout");

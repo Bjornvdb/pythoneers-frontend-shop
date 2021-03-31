@@ -12,6 +12,7 @@ const messages = {
     no_products: "No products",
     origin: "Origin",
     made: "Made by the",
+    logout: "Logout",
   },
   nl: {
     test: "test nl",
@@ -24,6 +25,7 @@ const messages = {
     no_products: "Geen producten",
     origin: "Herkomst",
     made: "Gemaakt door de",
+    logout: "Uitloggen",
   },
 };
 
