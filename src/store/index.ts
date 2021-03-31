@@ -1,6 +1,6 @@
 import { coffee } from "@/interfaces";
 import { createStore } from "vuex";
-import { createLogger } from "vuex";
+import createPersistedState from "vuex-persistedstate";
 import axios from "axios";
 
 export default createStore({
@@ -72,5 +72,5 @@ export default createStore({
     },
   },
   modules: {},
-  plugins: [createLogger()],
+  plugins: [createPersistedState()],
 });
