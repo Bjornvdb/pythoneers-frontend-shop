@@ -5,7 +5,7 @@
         size="xlarge"
         image="https://i.pinimg.com/originals/74/26/cf/7426cf05ffe331b889b1459cd0005054.png"
       ></Avatar>
-      <h3 style="color: rgba(255, 255, 255, 0.87)">CoffeeTaste</h3>
+      <h3 style="color: rgba(255, 255, 255, 0.87); font-family: 'Satisfy', cursive; font-size: 30px; margin: 0px">CoffeeTaste</h3>
     </template>
     <template #right>
       <SelectButton class="p-mr-4" v-model="lang" :options="languages" />
@@ -70,9 +70,11 @@ export default defineComponent({
 
     const open = ref(false);
 
+    const logout = ref(t("logout"));
+
     const items = ref([
       {
-        label: computed(() => t("logout")),
+        label: logout.value,
         icon: "pi pi-user-minus",
         command: () => {
           store.commit("logout");
