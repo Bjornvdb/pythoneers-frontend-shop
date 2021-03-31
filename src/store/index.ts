@@ -14,7 +14,7 @@ export default createStore({
     },
     endpoints: {
       login:
-        "https://pythoneers-backend-auth-ucllteam15.ocp-ucll-40cb0df2b03969eabb3fac6e80373775-0000.eu-de.containers.appdomain.cloud/login",
+        "http://pythoneers-backend-auth-ucllteam15.ocp-ucll-40cb0df2b03969eabb3fac6e80373775-0000.eu-de.containers.appdomain.cloud/login",
     },
   },
   getters: {
@@ -68,7 +68,9 @@ export default createStore({
   },
   actions: {
     async getProducts(context) {
-      const { data } = await axios.get("http://localhost:8080/api/products");
+      const { data } = await axios.get(
+        "http://pythoneers-backend-ucllteam15.ocp-ucll-40cb0df2b03969eabb3fac6e80373775-0000.eu-de.containers.appdomain.cloud//api/products"
+      );
       context.commit("setProducts", data);
     },
   },
