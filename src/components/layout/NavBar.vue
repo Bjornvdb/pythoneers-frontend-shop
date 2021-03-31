@@ -16,6 +16,11 @@
         icon="pi pi-user"
         class="p-button-outlined"
       />
+      <SplitButton
+        v-if="user.isAuthenticated"
+        :label="user.name"
+        :model="items"
+      ></SplitButton>
       <Button
         icon="pi pi-shopping-cart"
         @click="open = true"
@@ -46,20 +51,40 @@ import { useStore } from "vuex";
 // Lib components
 import Toolbar from "primevue/toolbar";
 import SelectButton from "primevue/selectbutton";
+import SplitButton from "primevue/splitbutton";
+
+import { useToast } from "primevue/usetoast";
 
 // Own components
 import ShoppingCartTable from "@/components/shopping-cart/ShoppingCartTable.vue";
 
 export default defineComponent({
-  components: { Toolbar, SelectButton, ShoppingCartTable },
+  components: { Toolbar, SelectButton, ShoppingCartTable, SplitButton },
 
   setup() {
     const store = useStore();
     const { t, locale } = useI18n({ useScope: "global" });
+    const toast = useToast();
 
     const lang = ref(locale);
 
     const open = ref(false);
+
+    const items = ref([
+      {
+        label: "Logout",
+        icon: "pi pi-user-minus",
+        command: () => {
+          store.commit("logout");
+          toast.add({
+            severity: "info",
+            summary: "Logged out",
+            detail: "You have been successfully logged out!",
+            life: 3000,
+          });
+        },
+      },
+    ]);
 
     const onLoginClicked = () => {
       window.location = store.state.endpoints.login;
@@ -77,6 +102,7 @@ export default defineComponent({
       t,
       open,
       onLoginClicked,
+      items,
     };
   },
 });

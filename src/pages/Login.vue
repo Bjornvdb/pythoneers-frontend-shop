@@ -20,8 +20,6 @@ export default defineComponent({
     onMounted(() => {
       const { name, email, id_token } = route.query;
 
-      console.log(name, email, id_token);
-
       if (
         name &&
         email &&
