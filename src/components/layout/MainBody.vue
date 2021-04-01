@@ -27,7 +27,7 @@
               <img
                 alt="coffee image"
                 style="max-height: 450px"
-                :src="coffee.img"
+                :src="coffee.thumbnail_url"
               />
             </template>
             <template #title>{{ coffee.name }}</template>
@@ -35,7 +35,9 @@
             <template #content>
               <p>{{ coffee.description }}</p>
               <p class="p-text-bold">{{ t("price") }}: €{{ coffee.price }}</p>
-              <p class="p-text-bold">{{ t("in_stock") }}: {{ coffee.stock }}</p>
+              <p class="p-text-bold">
+                {{ t("in_stock") }}: {{ coffee.quantity }}
+              </p>
               <p class="p-text-bold">{{ t("origin") }}: {{ coffee.origin }}</p>
             </template>
             <template #footer>

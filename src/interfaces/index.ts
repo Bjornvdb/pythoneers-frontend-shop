@@ -1,10 +1,10 @@
 export type coffee = {
   id: number;
-  name: string;
+  title: string;
   description: string;
-  img: string;
+  thumbnail_url: string;
   price: number;
-  stock: number;
+  quantity: number;
   amountSelected: number;
   amountInBasket: number;
   origin: string;

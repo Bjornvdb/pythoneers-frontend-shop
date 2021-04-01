@@ -3,10 +3,10 @@
     <template #header>
       <div class="table-header">Products</div>
     </template>
-    <Column field="name" header="Name"></Column>
+    <Column field="title" header="Title"></Column>
     <Column header="Image">
       <template #body="slotProps">
-        <img :src="slotProps.data.img" class="product-image" />
+        <img :src="slotProps.data.thumbnail_url" class="product-image" />
       </template>
     </Column>
     <Column field="amountInBasket" header="Amount"></Column>
@@ -44,7 +44,7 @@
     <div class="confirmation-content">
       <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" />
       <span v-if="coffeeTemp"
-        >Are you sure you want to delete <b>{{ coffeeTemp.name }}</b
+        >Are you sure you want to delete <b>{{ coffeeTemp.title }}</b
         >?</span
       >
     </div>
