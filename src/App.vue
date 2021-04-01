@@ -12,7 +12,7 @@ export default defineComponent({
     const store = useStore();
     const { locale } = useI18n({ useScope: "global" });
 
-    locale.value = store.state.lang;
+    locale.value = store.state.lang === "" ? "en" : store.state.lang;
   },
 });
 </script>
