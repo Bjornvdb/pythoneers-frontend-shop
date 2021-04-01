@@ -34,8 +34,3 @@ body {
   background-position: center;
   background-size: cover
 }
-.goog-te-banner-frame.skiptranslate{display: none !important;}
-.goog-te-gadget{font-family: Roboto, 'Open Sans', sans-serif!important; text-transform: uppercase;}
-.goog-logo-link{display:none !important;}
-.goog-te-gadget{color: transparent !important;}
-.goog-te-gadget .goog-te-combo{margin: 4px 0; padding: 10px; position: relative; top: 7px; border-radius: 5px; font-size: 15px; background: #6dbff7;}

@@ -11,7 +11,6 @@
       </div>
     </template>
     <template #right>
-      <div id="google_translate_element" class="p-mr-4"></div>
       <SelectButton class="p-mr-4" v-model="lang" :options="languages" />
       <Button
         :label="t('login')"
