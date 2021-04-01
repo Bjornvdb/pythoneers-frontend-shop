@@ -66,7 +66,7 @@
   >
     <ShoppingCartTable />
     <template #footer>
-      <Button :label="t('order')" icon="pi pi-check" autofocus />
+      <Button :disabled="numberOfProducts <= 0" :label="t('order')" icon="pi pi-check" autofocus />
     </template>
   </Dialog>
 </template>

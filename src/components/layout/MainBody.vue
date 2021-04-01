@@ -62,6 +62,7 @@
                   incrementButtonClass="p-button-success"
                   incrementButtonIcon="pi pi-plus"
                   decrementButtonIcon="pi pi-minus"
+                  :disabled="coffee.quantity <= 0"
                 />
                 <Button
                   class="p-button-sm p-mt-3"

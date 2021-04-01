@@ -2,7 +2,7 @@
   <NavBar />
   <MainBody />
   <Footer />
-  <Toast position="bottom-right" />
+  <Toast position="bottom-right" :baseZIndex="100" />
 </template>
 
 <script lang="ts">
