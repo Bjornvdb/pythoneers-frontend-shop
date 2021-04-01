@@ -1,19 +1,19 @@
 <template>
-  <DataTable v-if="products.length > 0" :value="products" stripedRows>
+  <DataTable v-if="products.length > 0" :value="products">
     <template #header>
-      <div class="table-header">Products</div>
+      <div class="table-header">{{ t("products") }}</div>
     </template>
-    <Column field="title" header="Title"></Column>
-    <Column header="Image">
+    <Column field="title" :header="t('title')"></Column>
+    <Column :header="t('image')">
       <template #body="slotProps">
         <img :src="slotProps.data.thumbnail_url" class="product-image" />
       </template>
     </Column>
-    <Column field="amountInBasket" header="Amount"></Column>
-    <Column field="price" header="Price">
+    <Column field="amountInBasket" :header="t('amount')"></Column>
+    <Column field="price" :header="t('price')">
       <template #body="slotProps"> €{{ slotProps.data.price }} </template>
     </Column>
-    <Column :exportable="false" header="Actions">
+    <Column :exportable="false" :header="t('actions')">
       <template #body="slotProps">
         <Button
           icon="pi pi-pencil"
@@ -28,8 +28,7 @@
       </template>
     </Column>
     <template #footer>
-      In total there are {{ products ? products.length : 0 }} products, for a
-      total price of €{{ totalPrice }}
+      {{ t("total", { products: products ? products.length : 0, totalPrice }) }}
     </template>
   </DataTable>
   <h3 v-else class="p-m-0 p-text-center p-text-bolder">
@@ -38,25 +37,24 @@
   <Dialog
     v-model:visible="deleteProductDialog"
     :style="{ width: '450px' }"
-    header="Confirm"
+    :header="t('confirm')"
     :modal="true"
   >
     <div class="confirmation-content">
       <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" />
-      <span v-if="coffeeTemp"
-        >Are you sure you want to delete <b>{{ coffeeTemp.title }}</b
-        >?</span
-      >
+      <span v-if="coffeeTemp">
+        {{ t("sure", { coffee: coffeeTemp.title }) }} <b></b
+      ></span>
     </div>
     <template #footer>
       <Button
-        label="No"
+        :label="t('no')"
         icon="pi pi-times"
         class="p-button-text"
         @click="deleteProductDialog = false"
       />
       <Button
-        label="Yes"
+        :label="t('yes')"
         icon="pi pi-check"
         class="p-button-text"
         @click="deleteProduct"

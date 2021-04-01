@@ -1,7 +1,5 @@
 <template>
-  <div class="login">
-    <h4 style="margin-top: 30px; margin-bottom: 30px">Logging in ...</h4>
-  </div>
+  <div></div>
 </template>
 
 <script lang="ts">

@@ -111,8 +111,8 @@ export default defineComponent({
           store.commit("logout");
           toast.add({
             severity: "info",
-            summary: "Logged out",
-            detail: "You have been successfully logged out!",
+            summary: computed(() => t("logged_out")).value,
+            detail: computed(() => t("logged_out_detail")).value,
             life: 3000,
           });
         },
