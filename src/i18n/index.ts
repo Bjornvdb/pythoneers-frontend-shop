@@ -29,6 +29,11 @@ const messages = {
     logged_out: "Logged out",
     logged_out_detail: "You have been successfully logged out!",
     empty: "Stock is Empty!",
+    cancel: "Cancel",
+    save: "Save",
+    product_details: "Product details",
+    product_saved: "Product saved",
+    product_saved_detail: "The product has been saved!",
   },
   nl: {
     test: "test nl",
@@ -58,6 +63,11 @@ const messages = {
     logged_out: "Uitgelogd",
     logged_out_detail: "U bent succesvol uitgelogd!",
     empty: "Voorraad is op!",
+    cancel: "Annuleer",
+    save: "Opslaan",
+    product_details: "Productdetails",
+    product_saved: "Product opgeslagen",
+    product_saved_detail: "Het product is opgeslagen!",
   },
 };
 

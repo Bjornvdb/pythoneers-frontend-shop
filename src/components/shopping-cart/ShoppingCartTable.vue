@@ -61,6 +61,45 @@
       />
     </template>
   </Dialog>
+  <Dialog
+    v-model:visible="productDialog"
+    :style="{ width: '450px' }"
+    :header="t('product_details')"
+    :modal="true"
+    class="p-fluid"
+  >
+    <div class="p-formgrid p-grid">
+      <div class="p-field p-col">
+        <label for="quantity">{{ t("amount") }}</label>
+        <InputNumber
+          v-model="coffeeTemp.amountInBasket"
+          showButtons
+          :max="coffeeTemp.quantity"
+          :min="1"
+          inputClass="p-text-center"
+          buttonLayout="horizontal"
+          decrementButtonClass="p-button-danger"
+          incrementButtonClass="p-button-success"
+          incrementButtonIcon="pi pi-plus"
+          decrementButtonIcon="pi pi-minus"
+        />
+      </div>
+    </div>
+    <template #footer>
+      <Button
+        :label="t('cancel')"
+        icon="pi pi-times"
+        class="p-button-text"
+        @click="hideDialog"
+      />
+      <Button
+        :label="t('save')"
+        icon="pi pi-check"
+        class="p-button-text"
+        @click="saveProduct"
+      />
+    </template>
+  </Dialog>
 </template>
 
 <script lang="ts">
@@ -69,17 +108,22 @@ import { defineComponent, computed, ref } from "vue";
 // Lib components
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
+import InputNumber from "primevue/inputnumber";
+
 import { useStore } from "vuex";
 import { coffee } from "@/interfaces";
 import { useI18n } from "vue-i18n";
+import { useToast } from "primevue/usetoast";
 
 export default defineComponent({
-  components: { DataTable, Column },
+  components: { DataTable, Column, InputNumber },
   setup() {
     const store = useStore();
     const { t } = useI18n({ useScope: "global" });
+    const toast = useToast();
 
     const deleteProductDialog = ref(false);
+    const productDialog = ref(false);
     const coffeeTemp = ref<coffee | null>(null);
 
     const confirmDeleteProduct = (coffee: coffee) => {
@@ -93,6 +137,34 @@ export default defineComponent({
       deleteProductDialog.value = false;
     };
 
+    const editProduct = (coffee: coffee) => {
+      coffeeTemp.value = Object.assign({}, coffee);
+      productDialog.value = true;
+    };
+
+    const hideDialog = () => {
+      coffeeTemp.value = null;
+      productDialog.value = false;
+    };
+
+    const saveProduct = () => {
+      productDialog.value = false;
+      if (coffeeTemp.value !== null) {
+        const or: coffee = store.state.coffees.find(
+          (p: coffee) => p.id === coffeeTemp.value?.id
+        );
+        or.amountInBasket = coffeeTemp.value?.amountInBasket;
+        toast.add({
+          severity: "info",
+          summary: computed(() => t("product_saved")).value,
+          detail: computed(() => t("product_saved_detail")).value,
+          life: 3000,
+        });
+      }
+
+      coffeeTemp.value = null;
+    };
+
     return {
       products: computed(() => store.getters.getProductsInBasket),
       totalPrice: computed(() => store.getters.totalPrice),
@@ -101,6 +173,10 @@ export default defineComponent({
       coffeeTemp,
       deleteProduct,
       t,
+      productDialog,
+      editProduct,
+      hideDialog,
+      saveProduct,
     };
   },
 });
