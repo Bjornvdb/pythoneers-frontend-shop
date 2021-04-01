@@ -67,12 +67,11 @@ export default createStore({
   },
   actions: {
     async getProducts(context) {
-      const {
-        data,
-      } = await axios.get(
-        "http://pythoneers-backend-ucllteam15.ocp-ucll-40cb0df2b03969eabb3fac6e80373775-0000.eu-de.containers.appdomain.cloud/api/products",
-        { withCredentials: true }
-      );
+      const mm =
+        "http://pythoneers-backend-ucllteam15.ocp-ucll-40cb0df2b03969eabb3fac6e80373775-0000.eu-de.containers.appdomain.cloud/api/products";
+      const { data } = await axios.get("http://localhost:8000/api/products", {
+        withCredentials: true,
+      });
       context.commit("setProducts", data);
     },
   },
