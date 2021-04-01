@@ -24,8 +24,8 @@
         <div class="p-mr-2 p-mb-2" v-for="coffee of coffees" :key="coffee.id">
           <Card class="back-dark" style="width: 25em">
             <template #header>
-              <div v-if="coffee.quantity<=0" class="fade">
-                <p class="fade-message">Stock is Empty!</p>
+              <div v-if="coffee.quantity <= 0" class="fade">
+                <p class="fade-message">{{ t("empty") }}</p>
               </div>
               <img
                 alt="coffee image"
@@ -38,7 +38,13 @@
             <template #content>
               <p>{{ coffee.description }}</p>
               <p class="p-text-bold">{{ t("price") }}: €{{ coffee.price }}</p>
-              <p class="p-text-bold">
+              <p
+                class="p-text-bold"
+                :style="{
+                  color:
+                    coffee.quantity <= 0 ? 'red' : 'rgba(255, 255, 255, 0.87)',
+                }"
+              >
                 {{ t("in_stock") }}: {{ coffee.quantity }}
               </p>
               <p class="p-text-bold">{{ t("origin") }}: {{ coffee.origin }}</p>
@@ -61,6 +67,7 @@
                   class="p-button-sm p-mt-3"
                   @click="addToCard(coffee)"
                   icon="pi pi-check"
+                  :disabled="coffee.quantity <= 0"
                   :label="t('add_to_cart')"
                 />
               </div>

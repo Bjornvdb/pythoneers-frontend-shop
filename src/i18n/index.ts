@@ -28,6 +28,7 @@ const messages = {
     product_added_detail: "The product has been added to the shopping cart",
     logged_out: "Logged out",
     logged_out_detail: "You have been successfully logged out!",
+    empty: "Stock is Empty!",
   },
   nl: {
     test: "test nl",
@@ -56,6 +57,7 @@ const messages = {
     product_added_detail: "Het product is toegevoegd aan het winkelmandje",
     logged_out: "Uitgelogd",
     logged_out_detail: "U bent succesvol uitgelogd!",
+    empty: "Voorraad is op!",
   },
 };
 
