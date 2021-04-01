@@ -30,8 +30,8 @@
                 :src="coffee.thumbnail_url"
               />
             </template>
-            <template #title>{{ coffee.name }}</template>
-            <template subtitle>{{ coffee.name }}</template>
+            <template #title>{{ coffee.title }}</template>
+            <template subtitle>{{ coffee.title }}</template>
             <template #content>
               <p>{{ coffee.description }}</p>
               <p class="p-text-bold">{{ t("price") }}: €{{ coffee.price }}</p>
