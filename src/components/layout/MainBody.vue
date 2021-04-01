@@ -104,8 +104,8 @@ export default defineComponent({
       store.commit("addToCart", coffee);
       toast.add({
         severity: "success",
-        summary: "Product added",
-        detail: "The product has been added to the shopping cart",
+        summary: computed(() => t("product_added")).value,
+        detail: computed(() => t("product_added_detail")).value,
         life: 3000,
       });
     };
