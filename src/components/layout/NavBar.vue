@@ -5,7 +5,10 @@
         size="xlarge"
         image="https://i.pinimg.com/originals/74/26/cf/7426cf05ffe331b889b1459cd0005054.png"
       ></Avatar>
-      <h3 style="color: rgba(255, 255, 255, 0.87); font-family: 'Satisfy', cursive; font-size: 30px; margin: 0px">CoffeeTaste</h3>
+      <div>
+        <h3 style="color: rgba(255, 255, 255, 0.87);font-family: 'Satisfy',cursive; font-size: 30px; margin: 0px">CoffeeTaste</h3>
+        <p style="color: rgba(255, 255, 255, 0.87);margin: 0;font-family: 'Caveat', cursive; font-size: 20px">A new world of coffee</p>
+      </div>
     </template>
     <template #right>
       <div id="google_translate_element" class="p-mr-4"></div>

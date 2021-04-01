@@ -3,13 +3,13 @@ import { createI18n } from "vue-i18n";
 const messages = {
   en: {
     test: "test en",
-    login: "Login",
-    shopping_cart: "Shopping cart",
+    login: "SignUp/SignIn",
+    shopping_cart: "Cart",
     order: "Order",
-    add_to_cart: "Add to shopping card",
+    add_to_cart: "Add to Cart",
     price: "Price",
     in_stock: "In stock",
-    no_products: "No products",
+    no_products: "Your Cart is empty",
     origin: "Origin",
     made: "Made by the",
     logout: "Logout",
