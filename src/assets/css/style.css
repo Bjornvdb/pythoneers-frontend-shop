@@ -43,3 +43,20 @@ body {
 .p-button-outlined:hover{
   color: #a5daff !important;
 }
+.p-card-header{
+  position: relative;
+  overflow: hidden;
+}
+.fade{
+  position: absolute;
+  height: 450px;
+  width: 100%;
+  background: rgba(181, 179, 179, 0.49);
+}
+.fade-message{
+  margin: 0;
+  position: relative;
+  text-align: center;
+  top: 50%;
+  font-size: 2rem;
+}

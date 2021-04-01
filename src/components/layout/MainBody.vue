@@ -24,6 +24,9 @@
         <div class="p-mr-2 p-mb-2" v-for="coffee of coffees" :key="coffee.id">
           <Card class="back-dark" style="width: 25em">
             <template #header>
+              <div v-if="coffee.quantity<=0" class="fade">
+                <p class="fade-message">Stock is Empty!</p>
+              </div>
               <img
                 alt="coffee image"
                 style="max-height: 450px"
