@@ -13,8 +13,7 @@ export default createStore({
       idToken: "",
     },
     endpoints: {
-      login:
-        "http://pythoneers-backend-auth-ucllteam15.ocp-ucll-40cb0df2b03969eabb3fac6e80373775-0000.eu-de.containers.appdomain.cloud/login",
+      login: "",
       products: "",
     },
     lang: "",
@@ -74,6 +73,13 @@ export default createStore({
       state.endpoints.login = process.env.VUE_APP_AUTH_URL;
       state.endpoints.products = process.env.VUE_APP_PRODUCTS_URL;
       console.log(process.env);
+    },
+    doOrder(state) {
+      state.coffees = state.coffees.map((c) => {
+        c.quantity -= c.amountInBasket;
+        c.amountInBasket = 0;
+        return c;
+      });
     },
   },
   actions: {

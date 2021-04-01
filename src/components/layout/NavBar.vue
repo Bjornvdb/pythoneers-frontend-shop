@@ -66,7 +66,13 @@
   >
     <ShoppingCartTable />
     <template #footer>
-      <Button :disabled="numberOfProducts <= 0" :label="t('order')" icon="pi pi-check" autofocus />
+      <Button
+        @click="doOrder"
+        :disabled="numberOfProducts <= 0"
+        :label="t('order')"
+        icon="pi pi-check"
+        autofocus
+      />
     </template>
   </Dialog>
 </template>
@@ -128,6 +134,17 @@ export default defineComponent({
       { name: "English", code: "en" },
     ]);
 
+    const doOrder = () => {
+      store.commit("doOrder");
+      toast.add({
+        severity: "info",
+        summary: computed(() => t("order_saved")).value,
+        detail: computed(() => t("order_saved_detail")).value,
+        life: 3000,
+      });
+      open.value = false;
+    };
+
     return {
       numberOfProducts: computed(() => store.getters.numberOfProductsInCart),
       storef: computed(() => store.state.coffees),
@@ -139,6 +156,7 @@ export default defineComponent({
       open,
       onLoginClicked,
       items,
+      doOrder,
     };
   },
 });

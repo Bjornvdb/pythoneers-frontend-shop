@@ -34,6 +34,8 @@ const messages = {
     product_details: "Product details",
     product_saved: "Product saved",
     product_saved_detail: "The product has been saved!",
+    order_saved: "Order complete",
+    order_saved_detail: "Your order has been placed!",
   },
   nl: {
     test: "test nl",
@@ -68,6 +70,8 @@ const messages = {
     product_details: "Productdetails",
     product_saved: "Product opgeslagen",
     product_saved_detail: "Het product is opgeslagen!",
+    order_saved: "Bestelling geplaatst",
+    order_saved_detail: "U bestelling is geplaatst!",
   },
 };
 
