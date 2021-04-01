@@ -13,8 +13,7 @@ export default createStore({
       idToken: "",
     },
     endpoints: {
-      login:
-        "http://pythoneers-backend-auth-ucllteam15.ocp-ucll-40cb0df2b03969eabb3fac6e80373775-0000.eu-de.containers.appdomain.cloud/login",
+      login: "http://localhost:3000/login",
     },
   },
   getters: {
@@ -68,8 +67,11 @@ export default createStore({
   },
   actions: {
     async getProducts(context) {
-      const { data } = await axios.get(
-        "http://pythoneers-backend-ucllteam15.ocp-ucll-40cb0df2b03969eabb3fac6e80373775-0000.eu-de.containers.appdomain.cloud//api/products"
+      const {
+        data,
+      } = await axios.get(
+        "http://pythoneers-backend-ucllteam15.ocp-ucll-40cb0df2b03969eabb3fac6e80373775-0000.eu-de.containers.appdomain.cloud/api/products",
+        { withCredentials: true }
       );
       context.commit("setProducts", data);
     },
