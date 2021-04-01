@@ -6,24 +6,34 @@ body {
   background-color: var(--surface-a);
   top: 0px !important
 }
-
 .container {
   width: 80%;
   margin: auto;
 }
-
 .back-dark {
   background-color: var(--surface-b) !important;
 }
-
 .footer {
   color: rgba(255, 255, 255, 0.87);
 }
-
 .test {
   background-color: var(--surface-0) !important;
 }
-
+.ftr-frst{
+  padding: 20px 15px;
+}
+.up-arrow{
+  position: sticky;
+  float: right;
+  top: 90%;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-image: url("../up-arrow.png");
+  background-position: center;
+  background-size: cover
+}
 .goog-te-banner-frame.skiptranslate{display: none !important;}
 .goog-te-gadget{font-family: Roboto, 'Open Sans', sans-serif!important; text-transform: uppercase;}
 .goog-logo-link{display:none !important;}

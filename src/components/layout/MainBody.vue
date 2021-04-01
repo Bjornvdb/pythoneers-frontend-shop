@@ -1,4 +1,5 @@
 <template>
+  <a class="p-text-right up-arrow" href="/#"></a>
   <div class="container p-mt-3">
     <div class="p-d-flex p-flex-wrap p-jc-center">
       <div class="p-d-flex p-flex-wrap p-jc-center p-mb-3" v-if="loading">
