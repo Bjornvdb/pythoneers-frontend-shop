@@ -4,7 +4,7 @@ const messages = {
   en: {
     test: "test en",
     login: "SignUp/SignIn",
-    shopping_cart: "Cart",
+    shopping_cart: "Shopping cart",
     order: "Order",
     add_to_cart: "Add to Cart",
     price: "Price",
@@ -16,7 +16,7 @@ const messages = {
   },
   nl: {
     test: "test nl",
-    login: "Inloggen",
+    login: "Inloggen/Registreren",
     shopping_cart: "Winkelwagen",
     order: "Bestellen",
     add_to_cart: "Aan winkelwagen toevoegen",

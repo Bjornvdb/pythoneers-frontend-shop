@@ -72,7 +72,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref } from "vue";
+import { computed, defineComponent, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import { useStore } from "vuex";
 
@@ -99,15 +99,13 @@ export default defineComponent({
     const { t, locale } = useI18n({ useScope: "global" });
     const toast = useToast();
 
-    console.log(locale.value);
-
     const open = ref(false);
 
-    const logout = ref(t("logout"));
+    watch(locale, (lang) => store.commit("setLang", lang));
 
     const items = ref([
       {
-        label: logout.value,
+        label: computed(() => t("logout")),
         icon: "pi pi-user-minus",
         command: () => {
           store.commit("logout");

@@ -88,6 +88,7 @@ export default defineComponent({
     const loading = ref(true);
 
     onMounted(async () => {
+      store.commit("setUrls");
       await store.dispatch("getProducts");
       setTimeout(() => {
         loading.value = false;

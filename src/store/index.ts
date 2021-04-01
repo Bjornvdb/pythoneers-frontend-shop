@@ -15,7 +15,9 @@ export default createStore({
     endpoints: {
       login:
         "http://pythoneers-backend-auth-ucllteam15.ocp-ucll-40cb0df2b03969eabb3fac6e80373775-0000.eu-de.containers.appdomain.cloud/login",
+      products: "",
     },
+    lang: "",
   },
   getters: {
     numberOfProductsInCart(state) {
@@ -65,16 +67,20 @@ export default createStore({
       state.user.email = payload.email;
       state.user.idToken = payload.id_token;
     },
+    setLang(state, lang: string) {
+      state.lang = lang;
+    },
+    setUrls(state) {
+      state.endpoints.login = process.env.VUE_APP_AUTH_URL;
+      state.endpoints.products = process.env.VUE_APP_PRODUCTS_URL;
+      console.log(process.env);
+    },
   },
   actions: {
     async getProducts(context) {
-      const mm = "http://localhost:8000/api/products";
-      const { data } = await axios.get(
-        "http://pythoneers-backend-ucllteam15.ocp-ucll-40cb0df2b03969eabb3fac6e80373775-0000.eu-de.containers.appdomain.cloud/api/products",
-        {
-          withCredentials: true,
-        }
-      );
+      const { data } = await axios.get(context.state.endpoints.products, {
+        withCredentials: true,
+      });
       context.commit("setProducts", data);
     },
   },
