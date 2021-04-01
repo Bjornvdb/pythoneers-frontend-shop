@@ -32,5 +32,14 @@ body {
   border-radius: 50%;
   background-image: url("../up-arrow.png");
   background-position: center;
-  background-size: cover
+  background-size: cover;
+  transition-duration: 0.25s;
+}
+.up-arrow:hover{
+  box-shadow: 0px 0px 8px #007cf9;
+  transition-duration: 0.25s;
+}
+
+.p-button-outlined:hover{
+  color: #a5daff !important;
 }
