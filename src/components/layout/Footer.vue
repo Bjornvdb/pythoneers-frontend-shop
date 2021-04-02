@@ -8,7 +8,7 @@
       <div>
         <h3 style="color: rgba(255, 255, 255, 0.87);font-family: 'Satisfy',cursive; font-size: 30px; margin: 0px">CoffeeTaste</h3>
         <p style="color: rgba(255, 255, 255, 0.87);margin: 0;font-family: 'Caveat', cursive; font-size: 20px">A new world of coffee</p>
-        <div class="socials_container"><span class="socials-line">{{t("socials_line")}} </span><a v-for="social in socials" :href="social.link" :key="social.id" class="socials" :style="'background-image: url('+social.image_link+')'"></a></div>
+        <div class="socials_container"><span class="socials-line">{{t("socials_line")}} </span><a v-for="social in socials" :href="social.link" :title="social.name" :key="social.id" class="socials" :style="'background-image: url('+social.image_link+')'"></a></div>
       </div>
     </div>
     <hr style="margin: 0px">

@@ -73,6 +73,7 @@ body {
   background-position: center;
   background-size: cover;
   margin: 0 6px;
+  border-radius: 50%;
 }
 .socials-line{
   vertical-align: super;
