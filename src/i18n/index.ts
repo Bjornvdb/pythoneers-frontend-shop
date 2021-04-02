@@ -29,8 +29,6 @@ const messages = {
     logged_out: "Logged out",
     logged_out_detail: "You have been successfully logged out!",
     empty: "Stock is Empty!",
-    page_title: "Our Products",
-    socials_line: "Follow Us On",
     cancel: "Cancel",
     save: "Save",
     product_details: "Product details",
