@@ -60,3 +60,26 @@ body {
   top: 50%;
   font-size: 2rem;
 }
+.page-title{
+  font-size: 4rem;
+  color: rgba(85, 94, 223, 0.87);
+  font-family: 'Varela Round', sans-serif;
+  margin: 25px;
+}
+.socials{
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background-position: center;
+  background-size: cover;
+  margin: 0 6px;
+}
+.socials-line{
+  vertical-align: super;
+  margin-right: 10px;
+}
+.socials_container{
+  padding: 10px;
+  background: #7373737a;
+  margin-top: 15px;
+}
