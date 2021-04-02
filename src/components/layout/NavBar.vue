@@ -1,6 +1,7 @@
 <template>
   <toolbar class="test">
     <template #left>
+      <a class="logo-link" target="_blank" href="http://pythoneers-frontend-website-ucllteam15.ocp-ucll-40cb0df2b03969eabb3fac6e80373775-0000.eu-de.containers.appdomain.cloud/">
       <Avatar
         size="xlarge"
         image="https://i.pinimg.com/originals/74/26/cf/7426cf05ffe331b889b1459cd0005054.png"
@@ -27,6 +28,7 @@
           A new world of coffee
         </p>
       </div>
+      </a>
     </template>
     <template #right>
       <Dropdown

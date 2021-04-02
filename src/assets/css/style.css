@@ -89,3 +89,8 @@ body {
   background: #7373737a;
   margin-top: 15px;
 }
+.logo-link{
+  text-decoration: none;
+  width: 100%;
+  display: contents;
+}
