@@ -2,7 +2,6 @@
   <a class="p-text-right up-arrow" href="/#"></a>
   <div class="container p-mt-3">
     <div class="p-d-flex p-flex-wrap p-jc-center">
-      <h3 class="page-title">{{ t("page_title") }}</h3>
       <div class="p-d-flex p-flex-wrap p-jc-center p-mb-3" v-if="loading">
         <div v-for="i in 6" :key="i" class="custom-skeleton p-mr-2">
           <Skeleton width="25rem" height="250px"></Skeleton>
