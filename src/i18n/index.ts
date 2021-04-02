@@ -31,7 +31,6 @@ const messages = {
     empty: "Stock is Empty!",
     page_title: "Our Products",
     socials_line: "Follow Us On",
-    socials_icon_location: "../src/assets/",
     cancel: "Cancel",
     save: "Save",
     product_details: "Product details",
